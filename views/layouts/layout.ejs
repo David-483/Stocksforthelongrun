@@ -1,17 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mybrary</title>
-</head>
-<body>
-    Before
-    <%- include('../partials/header.ejs') %>
-    <%- include('../partials/errorMessage.ejs') %>
-    <br>
-    <%- body %>
+<!-- Head -->
+<%- include('../partials/head')-%>
+
+<!-- partial:index.partial.html -->
+<div class="video-bg">
+  <video width="320" height="240" autoplay loop muted>
+   <source src="https://assets.codepen.io/3364143/7btrrd.mp4" type="video/mp4">
+ Your browser does not support the video tag.
+ </video>
+ </div>
+ <div class="dark-light">
+  <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+   <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+ </div>
+<div class="app">
+  <!-- Header -->
+  <%- include('../partials/header')-%>
+
+<!-- LEFT SIDE-->
+<%- include('../partials/leftside')-%>
+
+<!-- HAUPT PAGE-->
+ <%- body %>
+ </div>
+</div>
+</div>
+<div class="overlay-app"></div>
+</div>
+<!-- partial -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="/scripts/scripts.js"></script>
+
+
+
 
 </body>
 </html>
