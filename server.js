@@ -12,6 +12,8 @@ const indexRouter = require('./routes/index')
 const authorRouter = require('./routes/authors')
 
 const filteredtablesRouter = require('./routes/filteredtables')
+const dashboardRouter = require('./routes/dashboard')
+
 
 app.set('view engine', 'ejs')
 
@@ -36,8 +38,13 @@ mongoose.connect(process.env.DATABASE_URL, {
     db.on('error', error => console.error(error))
     db.once('open', () => console.log('Connected to Mongoose'))
 
+
 app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/filteredtables', filteredtablesRouter)
+app.use('/dashboard', dashboardRouter)
+
+app.use(express.json())
+
 
 app.listen(process.env.PORT || 3000)

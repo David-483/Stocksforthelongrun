@@ -1,0 +1,31 @@
+<div style="overflow-y: scroll; height:800px;">
+
+<div class="content-section">
+    <div class="content-section-title">Unternehmensname</div>
+    <ul>
+        <% unternehmen.forEach(unternehmen=> { %> 
+     <li class="adobe-product">
+      <div class="products">
+        <img src="/img/unternehmenslogos/AAPL.svg" width="42">
+     <!--   <svg viewBox="0 0 52 52" style="border:1px solid #3291b8"></svg>
+        <img  src="/public/img/unternehmenslogos/AAPL.svg" alt="">
+       -->
+       <%= unternehmen.name %>
+      </div>
+      <span class="status">
+        <%= unternehmen.umsatz %></span>
+       <span class="status">
+        <%= unternehmen.category %></span>
+       <div class="menu">
+        <button class="dropdown">
+         <ul>
+          <li><a href="#">Go to Discover</a></li>
+          <li><a href="#">Learn more</a></li>
+          <li><a href="#">Uninstall</a></li>
+         </ul>
+        </button>
+       </div>
+     </li>
+     <% }) %>
+    </ul>
+    </div>

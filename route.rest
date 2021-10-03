@@ -1,0 +1,14 @@
+GET http://localhost:3000/filteredtables
+
+###
+GET http://localhost:3000/filteredtables/dudummerhs
+
+###
+Post http://localhost:3000/filteredtables
+Content-Type: application/json
+
+{
+   "name":"Nike",
+   "umsatz":"5000",
+   "category":"sport"
+}
