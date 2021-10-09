@@ -507,3 +507,28 @@ window.Apex = {
        toggleButton.addEventListener('click', () => {
          document.body.classList.toggle('light-mode');
        });
+
+
+
+       $(document).ready( function() {
+        $("#autocomplete").autocomplete({
+            source:function(req,res){
+                $.ajax({
+                 url:'/filteredtables/auto',
+                 method:'post',
+                 dataType:'json',
+                 data:{'auto':req.term},
+                 success:function(data){ 
+                     var x = new Array();
+                         $.each(data.data,(index,values)=>{
+                              x.push({'value':values.name});
+                      });
+                      res(x)
+                  },
+                  error:function(){
+                      alert('server error occured')
+                  }
+                });
+            }
+        });
+ });

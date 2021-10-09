@@ -12,6 +12,14 @@ const unternehmenSchema = new mongoose.Schema({
       category: {
         type: String,
         required: true
+      },
+      searchable: {
+        type: String,
+        required: true
+      },
+      'company_data.ticker':{
+        tpye: String,
+        required: false
       }
     })
 

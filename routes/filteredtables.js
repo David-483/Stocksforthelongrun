@@ -65,6 +65,24 @@ async function getUnternehmen(req, res, next) {
     next()
   }
 
+    router.post('/auto',(req,res)=>{
+      var dieSuche = req.body.auto;
+      
+ //             Unternehmen.find({name:{'$regex':dieSuche , '$options' : 'i'}},{name:1, _id:0},(err,autoData)=>{
+        Unternehmen.find({
+          $and: [ 
+            {name:{'$regex':dieSuche , '$options' : 'i'}},
+            {searchable: '1'}
+          ]},
+              (err,autoData)=>{
+                 if(err){
+                     console.log(err);
+                 }else{
+                     res.json({data:autoData});
+                 }
+      }).limit(2).select('name category');
+    });
+
 
 
 module.exports = router

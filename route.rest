@@ -1,7 +1,12 @@
-GET http://localhost:3000/filteredtables
+GET http://localhost:3000/filteredtables/autocomplete
 
 ###
-GET http://localhost:3000/filteredtables/dudummerhs
+GET http://localhost:3000/filteredtables/sport
+
+
+###
+GET http://localhost:3000/filteredtables/
+
 
 ###
 Post http://localhost:3000/filteredtables
