@@ -1,11 +1,15 @@
 <div class="main-container">
     <div class="main-header">
-     <a class="menu-link-main" href="#">Alle Unternehmen</a>
+        <img src="/img/unternehmenslogos/<%= unternehmen.company_data.ticker %>.svg" alt="Company Logo" width="52" height="52">
+             <h1> 
+            <%= unternehmen.company_data.ticker %>
+        </h1>
      </div>
+<script>myObj = <%- JSON.stringify(unternehmen) %>;</script>
 
-<!-- 
 
+     <%- include ('_liniendiagram.ejs') %>
 
 <div id="areachart"></div>
 
-<div id="radialBarBottom"></div>-->
+<div id="radialBarBottom"></div>

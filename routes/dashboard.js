@@ -28,9 +28,13 @@ router.get('/:ticker', async (req, res) => {
               res.render('dashboard/index', {unternehmen: unternehmens})
              } }
              */
- ).limit(9).select('-_id');
+ ).select('-_id');
  //res.json(unternehmens)
- res.render('dashboard/index', {unternehmen: unternehmens})
+ if(unternehmens == null){
+  res.render('index')
+ }else{
+    res.render('dashboard/index', {unternehmen: unternehmens})
+ }
 }
 catch (err){
   res.status(500).json({ message: err.message })

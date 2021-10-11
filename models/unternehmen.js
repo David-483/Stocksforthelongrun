@@ -18,7 +18,11 @@ const unternehmenSchema = new mongoose.Schema({
         required: true
       },
       'company_data.ticker':{
-        tpye: String,
+        type: String,
+        required: false
+      },
+      'revenue.2010':{
+        type: String,
         required: false
       }
     })

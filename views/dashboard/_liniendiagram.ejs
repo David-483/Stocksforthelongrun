@@ -1,0 +1,51 @@
+<script>
+  
+
+  function makedata(category,firstJahr, lastYear, ) {
+    if(firstJahr == null){
+      firstJahr = 2013;
+    }
+    if(lastYear == null){
+      lastYear = new Date().getFullYear() -1;
+    }    
+    var DATA = new Array();
+    var JAHR= firstJahr;
+    var BASE;
+    for (let i = firstJahr; i < lastYear; i++) {
+      BASE = "year_" + JAHR;
+      console.log(BASE);
+      console.log(myObj.revenue[BASE].FY);
+      DATA.push(myObj.revenue[BASE].FY);
+      JAHR= JAHR ++;
+    }
+    return DATA;
+  }
+
+  var data1 = makedata("revenue",2014,2021);
+
+
+  var optionsArea = {
+    chart: {
+      height: 380,
+      type: 'area',
+      stacked: false,
+    },
+    stroke: {
+      curve: 'straight'
+    },
+    series: [{
+      name: "<%= unternehmen.company_data.ticker %>",
+      data: data1
+    },
+    ],
+    xaxis: {
+      categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2'],
+    },
+    tooltip: {
+      followCursor: true
+    },
+    fill: {
+      opacity: 1,
+    },
+  }
+</script>
