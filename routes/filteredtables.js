@@ -80,7 +80,7 @@ async function getUnternehmen(req, res, next) {
                  }else{
                      res.json({data:autoData});
                  }
-      }).limit(2).select('name category');
+      }).limit(4).select('name category');
     });
 
 

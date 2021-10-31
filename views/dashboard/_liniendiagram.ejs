@@ -14,38 +14,91 @@
     for (let i = firstJahr; i < lastYear; i++) {
       BASE = "year_" + JAHR;
       console.log(BASE);
-      console.log(myObj.revenue[BASE].FY);
-      DATA.push(myObj.revenue[BASE].FY);
-      JAHR= JAHR ++;
+      console.log(myObj[category][BASE].FY);
+      DATA.push(myObj[category][BASE].FY);
+      JAHR= JAHR+1;
+    }
+    return DATA;
+  }
+  function makedescription(firstJahr, lastYear, ) {
+    if(firstJahr == null){
+      firstJahr = 2013;
+    }
+    if(lastYear == null){
+      lastYear = new Date().getFullYear() -1;
+    }    
+    var DATA = new Array();
+    var JAHR= firstJahr;
+    for (let i = firstJahr; i < lastYear; i++) {
+      console.log(JAHR);
+      DATA.push(JAHR);
+      JAHR= JAHR+1;
     }
     return DATA;
   }
 
-  var data1 = makedata("revenue",2014,2021);
+  var revenue = makedata("revenue",2013,2021);
+  var description = makedescription(2013,2021);
 
+  var netincome = makedata("net_income",2013,2021);
+  var description = makedescription(2013,2021);
 
-  var optionsArea = {
-    chart: {
-      height: 380,
-      type: 'area',
-      stacked: false,
+  var ebit = makedata("EBIT",2013,2021);
+  var description = makedescription(2013,2021);
+
+  var optionsArea = {  chart: {
+    height: 328,
+    type: 'line',
+    zoom: {
+      enabled: false
     },
-    stroke: {
-      curve: 'straight'
+    dropShadow: {
+      enabled: true,
+      top: 3,
+      left: 2,
+      blur: 4,
+      opacity: 1,
+    }
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 2
+  },
+   series: [{
+      name: "Umsatz",
+      data: revenue
     },
-    series: [{
-      name: "<%= unternehmen.company_data.ticker %>",
-      data: data1
+    {
+      name: "EBIT",
+      data: ebit
     },
-    ],
+    {
+      name: "Gewinn",
+      data: netincome
+    }
+  ],
     xaxis: {
-      categories: ['2011 Q1', '2011 Q2', '2011 Q3', '2011 Q4', '2012 Q1', '2012 Q2'],
+      categories: description,
     },
     tooltip: {
       followCursor: true
     },
+    markers: {
+    size: 5,
+    strokeWidth: 0,
+    hover: {
+      size: 7
+    }
+  },
     fill: {
       opacity: 1,
     },
   }
+
+  var chartArea = new ApexCharts(
+    document.querySelector("#areachart"),
+    optionsArea
+  );
+  
+  chartArea.render();
 </script>

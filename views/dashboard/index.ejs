@@ -5,11 +5,51 @@
             <%= unternehmen.company_data.ticker %>
         </h1>
      </div>
+
 <script>myObj = <%- JSON.stringify(unternehmen) %>;</script>
 
 
      <%- include ('_liniendiagram.ejs') %>
 
-<div id="areachart"></div>
 
-<div id="radialBarBottom"></div>
+     <%- include ('_sparkbox.ejs') %>
+     <div class="main">
+          <div class="row-sparkboxes">
+            <div class="col-md-3">
+              <div class="box box1">
+                <div class="details">
+                  <h2>1213</h2>
+                  <h4>Wixer</h4>
+                </div>
+                <div id="spark1"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box box2">
+                <div class="details">
+                  <h2>422</h2>
+                  <h4>VIEWS</h4>
+                </div>
+                <div id="spark2"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box box3">
+                <div class="details">
+                  <h2>311</h2>
+                  <h4>LEADS</h4>
+                </div>
+                <div id="spark3"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="box box4">
+                <div class="details">
+                  <h2>22</h2>
+                  <h4>SALES</h4>
+                </div>
+                <div id="spark4"></div>
+              </div>
+            </div>
+          </div>
+          <div id="areachart"></div>

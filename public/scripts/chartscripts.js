@@ -393,3 +393,4 @@ window.Apex = {
   );
   
   chartArea.render();
+  
