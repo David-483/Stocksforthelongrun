@@ -16,7 +16,7 @@ router.get('/', (req, res) =>{
 })
 
 
-router.get('/:ticker', async (req, res) => {
+router.get('/:ticker', async (req, resp) => {
   
   // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
   //To-Do: Replace with current Ticker
@@ -34,6 +34,7 @@ router.get('/:ticker', async (req, res) => {
  if(unternehmens == null){
   res.render('index')
  }else{
+    
     request.get({
     url: url,
     json: true,
@@ -46,14 +47,13 @@ router.get('/:ticker', async (req, res) => {
     } else {
       // data is successfully parsed as a JSON object:
       //console.log(data);
-      berechneDaten(data, unternehmens);
+      berechneDaten(data, unternehmens); 
+      var fullData= JSON.stringify({unternehmen: unternehmens, calculated: calculated_data}); 
+      var fullDataJSON = JSON.parse(fullData);
+      console.log(fullDataJSON);
+      resp.render('dashboard/index', fullDataJSON)
     }
 });
-
-  //var returnVals= JSON.stringify({data2: unternehmens, data1: unternehmens}); 
-    res.render('dashboard/index', {unternehmen: unternehmens})
-  //  res.json(unternehmens)
-  //res.json(calculated_data)
  }
 }
 catch (err){
@@ -80,19 +80,22 @@ function berechneDaten(data, unternehmens) {
   var EBIT = aktUnternehmen.EBIT.year_2021.FY;
   var liabilities = aktUnternehmen.liabilities.year_2021.q2;
   var dividend_per_share = aktUnternehmen.dividend_per_share.year_2021.FY;
-
+  var dividend_per_share_BEFORE_5_YEARS = aktUnternehmen.dividend_per_share.year_2016.FY;
 
   // >>>>>>>> ZWISCHENRECHNUNG
 var revenue_per_share = revenue / shares_to_compute;
 var revenue_per_share_before_5_years = revenue_BEFORE_5_YEARS / shares_to_compute_BEFORE_5_YEARS;
 var five_year_eps_growth = ( Math.pow((EPS / EPS_BEFORE_5_YEARS), 0.2) -1 )  * 100;
 var five_year_revenue_growth = ( Math.pow((revenue_per_share / revenue_per_share_before_5_years), 0.2) -1 )  * 100;
+
 var assets = parseInt(liabilities)+parseInt(equity);
 
 
  // >>>>>>>>>> Daten für das FrontEnd
  //ACHTUNG FALLS WERT 0 IST
  var aktienKurs = data["Global Quote"]["05. price"];
+ var change = data["Global Quote"]["09. change"];
+ var changePercent = data["Global Quote"]["10. change percent"];
  var marketCap = aktienKurs * shares_outstanding; 
  var kgv = aktienKurs / EPS;
  var kuv = aktienKurs / (revenue_per_share);
@@ -106,27 +109,34 @@ var assets = parseInt(liabilities)+parseInt(equity);
  var roa = net_income / assets * 100;
  var dividend_yield = dividend_per_share / aktienKurs * 100;
  var payout_ratio = dividend_per_share / EPS * 100;
+ var five_year_dps_growth = ( Math.pow((dividend_per_share / dividend_per_share_BEFORE_5_YEARS), 0.2) -1 )  * 100;
 
+ // Eventuell noch anpassen
+ var aktienKursDisplay = aktienKurs * 1;
+
+ 
  calculated_data = {
   "calculated_data": {
-    "aktienKurs": aktienKurs,
-    "marketCap": marketCap,
-    "kgv": kgv,
-    "kuv": kuv,
-    "peg_ratio": peg_ratio,
-    "psg_ratio": psg_ratio,
-    "pricebook": pricebook,
-    "net_margin": net_margin,
-    "EBIT_margin": EBIT_margin,
-    "leverage": leverage,
-    "roe": roe,
-    "roa": roa,
-    "dividend_yield": dividend_yield,
-    "payout_ratio": payout_ratio
+    "aktienKurs": aktienKursDisplay.toFixed(2),
+    "change": change,
+    "changePercent": changePercent,
+    "marketCap": marketCap.toFixed(2),
+    "kgv": kgv.toFixed(2),
+    "kuv": kuv.toFixed(2),
+    "peg_ratio": peg_ratio.toFixed(2),
+    "psg_ratio": psg_ratio.toFixed(2),
+    "pricebook": pricebook.toFixed(2),
+    "net_margin": net_margin.toFixed(2),
+    "EBIT_margin": EBIT_margin.toFixed(2),
+    "leverage": leverage.toFixed(2),
+    "roe": roe.toFixed(2),
+    "roa": roa.toFixed(2),
+    "dividend_yield": dividend_yield.toFixed(2),
+    "payout_ratio": payout_ratio.toFixed(2),
+    "five_year_dps_growth" : five_year_dps_growth.toFixed(2)
   }
  }
 ;
-
 }
 
 

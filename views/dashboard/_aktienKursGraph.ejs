@@ -1,0 +1,65 @@
+
+<script>
+    var aktienKursGraph = {
+        chart: {
+          id: 'aktienKursGraph',
+          type: 'area',
+          height: 89,
+          sparkline: {
+            enabled: true
+          },
+          dropShadow: {
+            enabled: true,
+            top: 1,
+            left: 1,
+            blur: 2,
+            opacity: 0.2,
+          }
+        },
+        series: [{
+          data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21, 100]
+        }],
+        fill: {
+  type: 'gradient',
+  gradient: {
+    shade: 'dark',
+    type: "vertical",
+    shadeIntensity: 1,
+    gradientToColors: undefined, // optional, if not defined - uses the shades of same color in series
+    inverseColors: true,
+    opacityFrom: 1,
+    opacityTo: 0,
+    stops: [0, 75, 100],
+    colorStops: []
+  }
+},
+        stroke: {
+          curve: 'smooth',
+          width: 0.5
+        },
+        markers: {
+          size: 0
+        },
+        grid: {
+          padding: {
+            top: 20,
+            bottom: 10,
+            left: 20,
+            right: 20
+          }
+        },
+        colors: ['#00ff00'],
+        tooltip: {
+          x: {
+            show: true
+          },
+          y: {
+            title: {
+              formatter: function formatter(val) {
+                return '';
+              }
+            }
+          }
+        }
+      }
+    </script>
