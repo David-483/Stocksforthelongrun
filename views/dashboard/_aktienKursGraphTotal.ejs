@@ -1,0 +1,48 @@
+<script>
+  
+var aktienKursGraphTotal = {
+          series: [{
+          data: myObj.Kurs_Total
+        }],
+          chart: {
+          type: 'area',
+          stacked: false,
+          height: 350,
+          zoom: {
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true
+          },
+          toolbar: {
+            autoSelected: 'zoom'
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        markers: {
+          size: 0,
+        },
+        yaxis: {
+          title: {
+            text: 'Preis'
+          },
+        },
+        xaxis: {
+          type: 'datetime',
+          min: new Date('01 Oct 2016').getTime(),
+        },
+        tooltip: {
+          x: {
+            show: true,
+          },
+          y: {
+            title: {
+              formatter: function formatter(val) {
+                return ' $';
+              }
+            }
+          }
+        }
+        };
+    </script>

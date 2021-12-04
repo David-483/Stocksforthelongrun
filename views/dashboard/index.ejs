@@ -17,12 +17,19 @@
       </div>
 
 
-      <div class="main-header-aktienkurs">
-        <span class="main-header-name-and-isin-kurs">
+      <div class="main-header-aktienkurs-box">
+        <span class="main-header-aktienkurs-box-kurs" style="color:<%= calculated.calculated_data.colorForChange %>">
+          <%= calculated.calculated_data.changePercent %> %
+        </span>
+        <span class="main-header-aktienkurs-box-kurs2"> 
           <%= calculated.calculated_data.aktienKurs %> $
         </span>
-        <span class="main-header-name-and-isin-isin">
-          <%= calculated.calculated_data.aktienKurs %> $
+        <span class="main-header-aktienkurs-box-kurs-vortag">
+         Marketcap
+        </span>
+        <span class="main-header-aktienkurs-box-kurs-vortag2">
+          <!--<%= calculated.calculated_data.marketCap %> $ -->
+          2.1 Mrd $
         </span>
     </div>
 
@@ -34,10 +41,10 @@
 
 
 
-     <%- include ('_liniendiagram.ejs') %>
 
 
-     <%- include ('_sparkbox.ejs') %>
+
+     
      <div class="main">
           <div class="calculated_data">
             <div class="app-card">
@@ -88,15 +95,18 @@
               </table>
          </div>
 
-
+         <%- include ('_radialbarchart.ejs') %>
+         <div id="radialbarchart"></div>
+         
           </div>
 
+<%- include ('_sparkbox.ejs') %>
           <div class="row-sparkboxes">
             <div class="col-md-3">
               <div class="box box1">
                 <div class="details">
                   <h2>1213</h2>
-                  <h4>Wixer</h4>
+                  <h4>Umsatz</h4>
                 </div>
                 <div id="spark1"></div>
               </div>
@@ -129,4 +139,9 @@
               </div>
             </div>
           </div>
+
+          <%- include ('_liniendiagram.ejs') %>
+
+          <span class="main-financials-headline">Financials</span>
+
           <div id="areachart"></div>

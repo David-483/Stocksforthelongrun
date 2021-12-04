@@ -1,10 +1,11 @@
 
 <script>
-    var aktienKursGraph = {
+    var aktienKursGraphJahr = {
         chart: {
-          id: 'aktienKursGraph',
+          id: 'aktienKursGraphJahr',
           type: 'area',
-          height: 89,
+          height: "100%",
+          width: "100%",
           sparkline: {
             enabled: true
           },
@@ -17,8 +18,9 @@
           }
         },
         series: [{
-          data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21,25, 66, 41, 59, 25, 44, 12, 36, 9, 21, 100]
+          data: [[1, 34], [3.8, 43], [5, 31] , [10, 43], [13, 33], [15, 43], [18, 33] , [20, 52]]
         }],
+
         fill: {
   type: 'gradient',
   gradient: {
@@ -51,12 +53,12 @@
         colors: ['#00ff00'],
         tooltip: {
           x: {
-            show: true
+            show: true,
           },
           y: {
             title: {
               formatter: function formatter(val) {
-                return '';
+                return ' $';
               }
             }
           }

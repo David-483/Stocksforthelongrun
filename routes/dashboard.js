@@ -113,14 +113,27 @@ var assets = parseInt(liabilities)+parseInt(equity);
 
  // Eventuell noch anpassen
  var aktienKursDisplay = aktienKurs * 1;
+ var changePercentDisplay = parseFloat(changePercent);
+ var colorForChange = Math.sign(changePercentDisplay);
+
+
+ if (colorForChange > 0) {
+  colorForChange = 'green';
+} else if (colorForChange < 0) {
+  colorForChange = 'red';
+} else{
+  colorForChange = "blue"
+}
+
 
  
  calculated_data = {
   "calculated_data": {
     "aktienKurs": aktienKursDisplay.toFixed(2),
     "change": change,
-    "changePercent": changePercent,
-    "marketCap": marketCap.toFixed(2),
+    "changePercent": changePercentDisplay.toFixed(2),
+    "colorForChange": colorForChange,
+    "marketCap": marketCap,
     "kgv": kgv.toFixed(2),
     "kuv": kuv.toFixed(2),
     "peg_ratio": peg_ratio.toFixed(2),
@@ -139,5 +152,10 @@ var assets = parseInt(liabilities)+parseInt(equity);
 ;
 }
 
+function giveColor(colorForChange) {
+  let result;
+
+  return result;
+}
 
 module.exports = router

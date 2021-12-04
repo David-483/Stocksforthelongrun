@@ -1,0 +1,31 @@
+
+<script>
+    var radialbarchart = {
+          series: [myObj.General.Highlights.WallStreetTargetPrice, myObj.General.AnalystRatings.TargetPrice],
+          chart: {
+          height: 250,
+          type: 'radialBar',
+        },
+        plotOptions: {
+          radialBar: {
+            dataLabels: {
+              name: {
+                fontSize: '22px',
+              },
+              value: {
+                fontSize: '16px',
+              },
+              total: {
+                show: true,
+                label: 'Preis',
+                formatter: function (w) {
+                  // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                  return 
+                }
+              }
+            }
+          }
+        },
+        labels: ['WallStreet', 'AnalystEST'],
+        };
+    </script>

@@ -1,9 +1,7 @@
-
 <script>
 var spark1 = {
     chart: {
       id: 'spark1',
-      group: 'sparks',
       type: 'line',
       height: 80,
       sparkline: {
@@ -18,7 +16,7 @@ var spark1 = {
       }
     },
     series: [{
-      data: [25, 66, 41, 59, 25, 44, 12, 36, 9, 21]
+      data: myObj.SparkChart.PEH
     }],
     stroke: {
       curve: 'smooth'
@@ -33,10 +31,14 @@ var spark1 = {
         left: 110
       }
     },
+    xaxis: {
+  type: 'datetime',
+},
     colors: ['#fff'],
     tooltip: {
       x: {
-        show: false
+        show: true,
+        format: 'yyyy'
       },
       y: {
         title: {
@@ -51,7 +53,6 @@ var spark1 = {
   var spark2 = {
     chart: {
       id: 'spark2',
-      group: 'sparks',
       type: 'line',
       height: 80,
       sparkline: {
@@ -66,10 +67,13 @@ var spark1 = {
       }
     },
     series: [{
-      data: [12, 14, 2, 47, 32, 44, 14, 55, 41, 69]
+      data: myObj.SparkChart.PSH
     }],
     stroke: {
       curve: 'smooth'
+    },
+    markers: {
+      size: 0
     },
     grid: {
       padding: {
@@ -78,13 +82,14 @@ var spark1 = {
         left: 110
       }
     },
-    markers: {
-      size: 0
-    },
+    xaxis: {
+  type: 'datetime',
+},
     colors: ['#fff'],
     tooltip: {
       x: {
-        show: false
+        show: true,
+        format: 'yyyy'
       },
       y: {
         title: {
@@ -95,11 +100,10 @@ var spark1 = {
       }
     }
   }
-  
-  var spark3 = {
+
+var spark3 = {
     chart: {
       id: 'spark3',
-      group: 'sparks',
       type: 'line',
       height: 80,
       sparkline: {
@@ -114,7 +118,7 @@ var spark1 = {
       }
     },
     series: [{
-      data: [47, 45, 74, 32, 56, 31, 44, 33, 45, 19]
+      data: myObj.SparkChart.PBH
     }],
     stroke: {
       curve: 'smooth'
@@ -129,15 +133,14 @@ var spark1 = {
         left: 110
       }
     },
-    colors: ['#fff'],
     xaxis: {
-      crosshairs: {
-        width: 1
-      },
-    },
+  type: 'datetime',
+},
+    colors: ['#fff'],
     tooltip: {
       x: {
-        show: false
+        show: true,
+        format: 'yyyy'
       },
       y: {
         title: {
@@ -148,11 +151,10 @@ var spark1 = {
       }
     }
   }
-  
+
   var spark4 = {
     chart: {
       id: 'spark4',
-      group: 'sparks',
       type: 'line',
       height: 80,
       sparkline: {
@@ -167,7 +169,7 @@ var spark1 = {
       }
     },
     series: [{
-      data: [15, 75, 47, 65, 14, 32, 19, 54, 44, 61]
+      data: myObj.SparkChart.PEH
     }],
     stroke: {
       curve: 'smooth'
@@ -182,15 +184,14 @@ var spark1 = {
         left: 110
       }
     },
-    colors: ['#fff'],
     xaxis: {
-      crosshairs: {
-        width: 1
-      },
-    },
+  type: 'datetime',
+},
+    colors: ['#fff'],
     tooltip: {
       x: {
-        show: false
+        show: true,
+        format: 'yyyy'
       },
       y: {
         title: {
@@ -201,5 +202,6 @@ var spark1 = {
       }
     }
   }
-  
+
+
 </script>

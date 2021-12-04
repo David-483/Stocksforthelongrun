@@ -1,0 +1,126 @@
+<script>
+  
+  /*
+    var TTTT = Object.keys(myObj.General.Financials.Income_Statement.yearly)[0];
+    console.log(TTTT);
+
+    var TTTT = Object.keys(myObj.General.Financials.Income_Statement.yearly)[1];
+    console.log(TTTT);
+
+    var test4 = myObj.General.Financials.Income_Statement.yearly[TTTT].netIncome;
+    console.log(test4);
+
+    var count = Object.keys(myObj.General.Financials.Income_Statement.yearly).length;
+    console.log(count);
+*/
+
+  function makedata(category,firstJahr, lastYear, ) {
+    var DATA = new Array();
+    firstJahr = 0;
+    lastYear = Object.keys(myObj.General.Financials.Income_Statement.yearly).length -1;
+    var JAHR;
+    var value;
+    for (let i = lastYear; i > 0; i--) {
+      JAHR = Object.keys(myObj.General.Financials.Income_Statement.yearly)[i];
+      value = myObj.General.Financials.Income_Statement.yearly[JAHR][category];
+      var OURJAHR = JAHR.substring(0, 4);
+      
+      DATA.push([OURJAHR, value]);
+    }
+    //console.log(myObj.General.Financials.Income_Statement.yearly);
+    return DATA;
+  }
+  
+  function makedescription() {
+  var lastYear = Object.keys(myObj.General.Financials.Income_Statement.yearly).length -1;
+    var DATA = new Array();
+    for (let i = lastYear; i > 0; i--) {
+      DATA.push(Object.keys(myObj.General.Financials.Income_Statement.yearly)[i]);
+    }
+    return DATA;
+  }
+/*
+  var revenue = makedata("revenue",2013,2021);
+  var description = makedescription(2013,2021);
+
+  var netincome = makedata("net_income",2013,2021);
+  
+
+  var ebit = makedata("EBIT",2013,2021);
+  */
+  var netIncome = makedata("netIncome", 2013,2021);
+  var ebit = makedata("ebit", 2013,2021);
+  var totalRevenue = makedata("totalRevenue", 2013,2021);
+  var description = makedescription();
+
+  console.log(description);
+  //console.log(revenue);
+
+
+  var optionsArea = {  chart: {
+    id: 'area-datetime',
+    height: 328,
+    type: 'area',
+    zoom: {
+      enabled: false,
+            autoScaleYaxis: false
+    },
+ 
+    dropShadow: {
+      enabled: true,
+      top: 3,
+      left: 2,
+      blur: 4,
+      opacity: 1,
+    }
+  },
+  stroke: {
+    curve: 'smooth',
+    width: 2
+  },
+   series: [{
+      name: "Umsatz",
+      data: totalRevenue
+    },
+    {
+      name: "EBIT",
+      data: ebit
+    },
+    {
+      name: "Gewinn",
+      data: netIncome
+    }
+  ],
+    xaxis: {
+      type: 'datetime',
+      labels: {
+    format: 'yyyy',
+  },
+  min: new Date('2015').getTime(),
+  max: new Date('2021').getTime(),
+    },
+    yaxis:{
+      opposite: true,
+      min: -1000,
+
+    },
+    tooltip: {
+      followCursor: true,
+      x: {
+            format: 'dd MMM yyyy'
+          }
+    },
+    markers: {
+    size: 0,
+    strokeWidth: 0,
+    hover: {
+      size: 7
+    }
+  },
+    fill: {
+      opacity: 1,
+    },
+  }
+
+  
+</script>

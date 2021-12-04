@@ -29,7 +29,11 @@ window.Apex = {
   new ApexCharts(document.querySelector("#spark3"), spark3).render();
   new ApexCharts(document.querySelector("#spark4"), spark4).render();
 
-  new ApexCharts(document.querySelector("#aktienKursGraph"), aktienKursGraph).render();
+  new ApexCharts(document.querySelector("#aktienKursGraphJahr"), aktienKursGraphJahr).render();
+  //new ApexCharts(document.querySelector("#aktienKursGraphTotal"), aktienKursGraphTotal).render();
+
+
+  //new ApexCharts(document.querySelector("#radialbarchart"), radialbarchart).render();
   
   
   var chartArea = new ApexCharts(
@@ -39,4 +43,68 @@ window.Apex = {
   
   chartArea.render();
 
+  var aktienKursGraphTotal = new ApexCharts(
+    document.querySelector("#aktienKursGraphTotal"),
+    aktienKursGraphTotal
+  );
+
+  aktienKursGraphTotal.render();
+
+  var resetCssClasses = function(activeEl) {
+    var els = document.querySelectorAll('button')
+    Array.prototype.forEach.call(els, function(el) {
+      el.classList.remove('active')
+    })
+    activeEl.target.classList.add('active')
+  }
+  
+  
+  document
+    .querySelector('#aktienkurs_six_months')
+    .addEventListener('click', function(e) {
+      resetCssClasses(e)
+  
+      aktienKursGraphTotal.zoomX(
+        new Date('01 Sep 2020').getTime(),
+        new Date('01 Jan 2021').getTime()
+      )
+    })
+  
+  document
+    .querySelector('#aktienkurs_one_year')
+    .addEventListener('click', function(e) {
+      resetCssClasses(e)
+      aktienKursGraphTotal.zoomX(
+        new Date('01 Sep 2018').getTime(),
+        new Date('01 Jan 2021').getTime()
+      )
+    })
+
+    document
+    .querySelector('#aktienkurs_five_year')
+    .addEventListener('click', function(e) {
+      resetCssClasses(e)
+      aktienKursGraphTotal.zoomX(
+        new Date('01 Sep 2018').getTime(),
+        new Date('01 Jan 2021').getTime()
+      )
+    })
+  
+  document.querySelector('#aktienkurs_ytd').addEventListener('click', function(e) {
+    resetCssClasses(e)
+  
+    aktienKursGraphTotal.zoomX(
+      new Date('01 Sep 2015').getTime(),
+      new Date('01 Jan 2021').getTime()
+    )
+  })
+  
+  document.querySelector('#aktienkurs_all').addEventListener('click', function(e) {
+    resetCssClasses(e)
+  
+    aktienKursGraphTotal.zoomX(
+      new Date('01 Sep 1980').getTime(),
+      new Date('01 Jan 2021').getTime()
+    )
+  })
   

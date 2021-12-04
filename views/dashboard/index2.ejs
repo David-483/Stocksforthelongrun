@@ -1,0 +1,212 @@
+<script>myObj = <%- JSON.stringify(unternehmen) %>;</script>
+<div class="main-container">
+  <div class="main-header">
+    <img class="main-header-logo" src="/img/unternehmenslogos/<%= unternehmen.General['General::Code'] %>.svg" alt="Company Logo"  >
+    <div class="main-header-name-and-isin">
+        <span class="main-header-name-and-isin-name"> 
+          <%= unternehmen.General['General::Name'] %> 
+      </span>
+      <span class="main-header-name-and-isin-isin">
+        <%= unternehmen.General['General::ISIN'] %> 
+      </span>
+    </div>
+    <%- include ('_aktienKursGraphJahr.ejs') %>
+    <div class="main-header-graph">
+    <div id="aktienKursGraphJahr"></div>        
+    </div>
+    <div class="main-header-aktienkurs-box">
+      <span class="main-header-aktienkurs-box-kurs" style="color:Green">
+        14 %
+      </span>
+      <span class="main-header-aktienkurs-box-kurs2"> 
+       20 $
+      </span>
+      <span class="main-header-aktienkurs-box-kurs-vortag">
+       Marketcap
+      </span>
+      <span class="main-header-aktienkurs-box-kurs-vortag2">
+        <!--<%= unternehmen.General['General::Code'] %> $ -->
+        2.1 Mrd $
+      </span>
+  </div>
+   </div>
+
+
+<div class="main-container">
+  <div class="main">
+    <div class="calculated_data">
+      <div class="app-card">
+           <table>
+            <tr>
+              <th>Valuation</th>
+            </tr>
+            <tr>
+              <td>TrailingPe</td>
+              <td><%= unternehmen.Sonstiges.TrailingPe %> x</td>
+            </tr>
+            <tr>
+              <td>PEG</td>
+              <td><%= unternehmen.Sonstiges.PEG %> x</td>
+            </tr>
+            <tr>
+              <td>PS</td>
+              <td><%= unternehmen.Sonstiges.PS %> x</td>
+            </tr>
+            <tr>
+              <td>PSG</td>
+              <td><%= unternehmen.Sonstiges.PSG %> x</td>
+            </tr>
+            <tr>
+              <td>PB</td>
+              <td><%= unternehmen.Sonstiges.PriceBookMRQ %> x</td>
+            </tr>
+           </table>
+      </div>
+
+      <div class="app-card">
+        <table>
+         <tr>
+           <th>Dividenden</th>
+         </tr>
+         <tr>
+           <td>DivYield</td>
+           <td><%= unternehmen.Sonstiges.DivYield %> %</td>
+         </tr>
+         <tr>
+           <td>DivShare</td>
+           <td><%= unternehmen.General.Highlights.DividendShare %> <%= unternehmen.General['General::CurrencySymbol'] %></td>
+         </tr>
+         <tr>
+           <td>Payout</td>
+           <td><%= unternehmen.Sonstiges.Payout %> %</td>
+         </tr>
+         <tr>
+           <td>NextDiv</td>
+           <td><%= unternehmen.General['SplitsDividends::DividendDate'] %> </td>
+         </tr>
+         <tr>
+          <td>Divgrowth</td>
+          <td> <%= unternehmen.Sonstiges.DIVGROWTH %> %</td>
+        </tr>
+        </table>
+   </div>
+
+   
+   <div class="app-card">
+    <table>
+     <tr>
+       <th>Effizienz</th>
+     </tr>
+     <tr>
+       <td>GrossMargin</td>
+       <td><%= unternehmen.Sonstiges.GrossMargin %> %</td>
+     </tr>
+     <tr>
+       <td>EBITMargin</td>
+       <td><%= unternehmen.Sonstiges.EBITMargin %> %</td>
+     </tr>
+     <tr>
+       <td>ProfitMargin</td>
+       <td><%= unternehmen.Sonstiges.ProfitMargin %> %</td>
+     </tr>
+     <tr>
+       <td>ROA</td>
+       <td><%= unternehmen.Sonstiges.ROA %> %</td>
+     </tr>
+     <tr>
+      <td>ROE</td>
+      <td><%= unternehmen.Sonstiges.ROE %> %</td>
+    </tr>
+
+    </table>
+</div>
+    </div>
+
+
+   
+    <div class="row-sparkboxes">
+      <div class="col-md-3">
+        <div class="box box1">
+          <div class="details">
+            <h2>KGV</h2>
+            <h4>Ø <%= unternehmen.Sonstiges.DURSCHNITT_PEH %></h4>
+          </div>
+          <div id="spark1"></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box box2">
+          <div class="details">
+            <h2>KUV</h2>
+            <h4>Ø <%= unternehmen.Sonstiges.DURSCHNITT_PSH %></h4>
+          </div>
+          <div id="spark2"></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box box3">
+          <div class="details">
+            <h2>KBV</h2>
+            <h4>Ø <%= unternehmen.Sonstiges.DURSCHNITT_PBH %></h4>
+          </div>
+          <div id="spark3"></div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="box box4">
+          <div class="details">
+            <h2>DIV</h2>
+            <h4>Ø SALES</h4>
+          </div>
+          <div id="spark4"></div>
+        </div>
+      </div>
+    </div>
+
+    <%- include ('_sparkbox.ejs') %>
+
+
+
+
+
+<%- include ('_aktienKursGraphTotal.ejs') %>
+
+<div id="aktienKursGraphTotal-box">
+  <div class="toolbar">
+    <span class="main-header-name-and-isin-name"> 
+      Aktienkurs 
+  </span><br>
+    <button id="aktienkurs_six_months" class="content-button status-button">
+      1M
+    </button>
+    <button id="aktienkurs_one_year" class="content-button status-button">
+      1Y
+    </button>
+    <button id="aktienkurs_five_year" class="content-button status-button">
+      1Y
+    </button>
+    <button id="aktienkurs_ytd" class="content-button status-button">
+      YTD
+    </button>
+    
+    <button id="aktienkurs_all" class="content-button status-button">
+      ALL
+    </button>
+  </div>
+  <div id="aktienKursGraphTotal"></div>
+  </div>
+    
+
+
+
+<br>
+<%- include ('_balkenUmsatzGewinnEbitdiagram2.ejs') %>
+<div id="chart">
+<div class="toolbar">
+    
+    
+  </div>
+<div id="areachart"></div> 
+</div>
+
+</div>
