@@ -1032,6 +1032,9 @@ flex: 0 0 25%;
     border-bottom: 1px solid #fff;
   }
 
+
+
+
   @media screen and (max-width: 1110px) {
     .app-card {
       width: calc(50% - 20px);
@@ -1078,3 +1081,240 @@ flex: 0 0 25%;
         width: 20%;
       }
   }
+
+  * { box-sizing: border-box; }
+
+  body { font-family: sans-serif; }
+  
+  .carousel {
+
+  }
+  
+  .carousel-cell {
+    width: 100%;
+    height: 200px;
+    margin-right: 10px;
+    border-radius: 5px;
+    counter-increment: gallery-cell;
+  }
+  
+  /* cell number */
+  .carousel-cell:before {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    line-height: 200px;
+    font-size: 80px;
+    color: white;
+  }
+/*! Flickity v2.2.2
+https://flickity.metafizzy.co
+---------------------------------------------- */
+
+.flickity-enabled {
+  position: relative;
+}
+
+.flickity-enabled:focus { outline: none; }
+
+.flickity-viewport {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+}
+
+.flickity-slider {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+/* draggable */
+
+.flickity-enabled.is-draggable {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+/* ---- flickity-button ---- */
+
+.flickity-button {
+  position: absolute;
+  background: hsla(0, 0%, 100%, 0);
+  border: none;
+  color: rgb(255, 255, 255);
+}
+
+.flickity-button:hover {
+  background: rgba(255, 255, 255, 0.329);
+  cursor: pointer;
+
+}
+
+.flickity-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 5px #19F;
+}
+
+.flickity-button:active {
+  opacity: 0.6;
+}
+
+.flickity-button:disabled {
+  opacity: 0.3;
+  cursor: auto;
+  /* prevent disabled button from capturing pointer up event. #716 */
+  pointer-events: none;
+}
+
+.flickity-button-icon {
+  fill: currentColor;
+}
+
+/* ---- previous/next buttons ---- */
+
+.flickity-prev-next-button {
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: 0.3s;
+  /* vertically center */
+  transform: translateY(-50%);
+  padding: 25px;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.flickity-prev-next-button.previous { left: 10px; }
+.flickity-prev-next-button.next { right: 10px; }
+/* right to left */
+.flickity-rtl .flickity-prev-next-button.previous {
+  left: auto;
+  right: 10px;
+}
+.flickity-rtl .flickity-prev-next-button.next {
+  right: auto;
+  left: 10px;
+}
+
+.flickity-prev-next-button .flickity-button-icon {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+}
+
+/* ---- page dots ---- */
+
+.flickity-page-dots {
+  position: absolute;
+  width: 100%;
+  bottom: -25px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  line-height: 1;
+}
+
+.flickity-rtl .flickity-page-dots { direction: rtl; }
+
+.flickity-page-dots .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 8px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  opacity: 0.25;
+  cursor: pointer;
+}
+
+.flickity-page-dots .dot.is-selected {
+  opacity: 1;
+}  
+
+.carousel-slider{
+  width: 100%; /* full width */
+  margin-right: 10px;
+}
+
+
+
+
+.carousel-slider .carousel-table{
+  width:100%;
+  table-layout: fixed;
+}
+
+
+
+.carousel-slider .tableHeader{
+  background-color: rgba(0, 0, 0, 0.1);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border: 1px solid rgb(255, 255, 255);
+  border-bottom: none;
+  width: 80%;
+  box-shadow: 5px 6px 10px rgb(0 0 0 / 20%);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+ }
+ 
+.carousel-slider .tableInhalt{
+  background: linear-gradient(20deg, rgba(255, 255, 255, 0.20), rgba(255,255,255,10%),  rgba(255,255,255,0%));
+  
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgb(255, 255, 255);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  width: 80%;
+  box-shadow: 5px 6px 10px rgb(0 0 0 / 20%);
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-slider th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.carousel-slider td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+.carousel-slider .tableInhalt tr:hover {
+  background-color:rgba(0, 0, 0, 0.233);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
