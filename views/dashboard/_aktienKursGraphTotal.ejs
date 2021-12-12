@@ -4,8 +4,11 @@ var aktienKursGraphTotal = {
           series: [{
           data: myObj.Kurs_Total
         }],
+        animations: {
+        enabled: true,
+        },
           chart: {
-          type: 'area',
+          type: 'line',
           stacked: false,
           height: 350,
           zoom: {

@@ -1,0 +1,180 @@
+<div class="tableHeader">
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr>
+        <th>Cash Flow</th>
+        <% var JAHRE=[]; %>
+          <% for(var i=0; i < 5; i++) { %>
+            <% JAHRE[i]=Object.keys(unternehmen.General.Financials.Income_Statement.yearly)[i] %>
+              <th>
+                <%= JAHRE[i] %>
+              </th>
+              <% } %>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tableInhalt">
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <td>Gewinn/Verlust</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].netIncome %>
+          </td>
+          <% } %>
+
+      </tr>
+
+      <tr>
+        <td>Abschreibungen</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].depreciationAndAmortization %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>sonstiges aus operativer Tätigkeit</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashFromOperatingActivities
+            - unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].netIncome
+            - unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].depreciationAndAmortization %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Cashflow aus operativer Tätigkeit</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashFromOperatingActivities %>
+          </td>
+          <% } %>
+      </tr>
+
+<!-- Hier Linie einfügen, um Trennung erkenntlich zu machen -->
+
+      <tr>
+        <td>CapEx</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].capitalExpenditures %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>sonstiges aus Investitionstätigkeit</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashflowsFromInvestingActivities
+            - unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].capitalExpenditures %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Cashflow aus Investitionstätigkeit</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashflowsFromInvestingActivities %> 
+          </td>
+          <% } %>
+      </tr>
+
+<!-- Hier Linie einfügen, um Trennung erkenntlich zu machen -->
+
+      <tr>
+        <td>gezahlte Dividenden</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].dividendsPaid %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Aktienrückkäufe</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].salePurchaseOfStock %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Kreditaufnahme</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].netBorrowings %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>sonstiges aus Finanzierungsaktivität</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= parseFloat(-unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].dividendsPaid
+            - unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].salePurchaseOfStock
+            - unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].netBorrowings)  
+            + parseFloat(unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashFromFinancingActivities) %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Cashflow aus Finanzierungstätigkeit</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].totalCashFromFinancingActivities %>
+          </td>
+          <% } %>
+      </tr>
+
+<!-- Hier Linie einfügen, um Trennung erkenntlich zu machen -->
+
+      <tr>
+        <td>Cashflow Veränderung</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].changeInCash %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Cashflow am Anfang der Periode</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].beginPeriodCashFlow %>
+          </td>
+          <% } %>
+      </tr>
+
+
+      <tr>
+        <td>Cashflow am Ende der Periode</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].endPeriodCashFlow %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Free Cashflow</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Cash_Flow.yearly[JAHRE[i]].freeCashFlow %>
+          </td>
+          <% } %>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>

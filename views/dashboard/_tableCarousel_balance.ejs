@@ -1,0 +1,340 @@
+<div class="tableHeader">
+
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+
+    <thead>
+
+      <tr>
+
+        <th>Balance Sheet</th>
+
+        <% var JAHRE=[]; %>
+
+          <% for(var i=0; i < 5; i++) { %>
+
+            <% JAHRE[i]=Object.keys(unternehmen.General.Financials.Income_Statement.yearly)[i] %>
+
+              <th>
+
+                <%= JAHRE[i] %>
+
+              </th>
+
+              <% } %>
+
+      </tr>
+
+    </thead>
+
+  </table>
+
+</div>
+
+<div class="tableInhalt">
+
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+
+    <tbody>
+      <tr>
+        <td>Cash</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].cash %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Kurzfristige Investments</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].shortTermInvestments %>
+
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Cash & kurzfristige Investments</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].cashAndShortTermInvestments %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Forderungen</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].netReceivables %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>kurzfristiges Vermögen</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalCurrentAssets %>
+
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>PPE</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].propertyPlantAndEquipmentNet %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>langfristige Investments</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].longTermInvestments %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>andere langfristige Investments</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].nonCurrrentAssetsOther %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+
+        <td>langfristiges Vermögen</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].nonCurrentAssetsTotal %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>Vermögen</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalAssets %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <!-- Hier Trennung erkenntlich machen -->
+
+      <tr>
+
+        <td>Kurzfristige Schulden</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].shortTermDebt %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>offene Abrechnungen</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].accountsPayable %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>andere kurzfristige Verbindlichkeiten</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalCurrentLiabilities -
+              unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].shortTermDebt -
+              unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].accountsPayable %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>Verbindlichkeiten</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalCurrentLiabilities %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>langfristige Schulden</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].longTermDebt %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>andere langfristige Verbindlichkeiten</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].nonCurrentLiabilitiesTotal -
+              unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].longTermDebt %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>langfristige Verbindlichkeiten</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].nonCurrentLiabilitiesTotal %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>Gesamtverbindlichkeiten</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalLiab %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>Eigenkapital</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].totalStockholderEquity %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+      <tr>
+
+        <td>Eigenkapital & Fremdkapital</td>
+
+        <% for(var i=0; i < 5; i++) { %>
+
+          <td>
+
+            <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].liabilitiesAndStockholdersEquity %>
+
+          </td>
+
+          <% } %>
+
+
+
+      </tr>
+
+
+    </tbody>
+
+  </table>
+
+</div>

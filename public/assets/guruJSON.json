@@ -1,0 +1,71 @@
+{
+    "details":{
+        "company":"Berkshire Hathaway Inc.",
+        "guru":"Warren Buffett",
+        "MRQ":"Q3",
+        "MRQ-1":"Q2",
+        "currentGuruYear":"2021"
+    },
+    "2020":{
+        "Q1":{
+            "totalvalue":"293447417",
+            "totalHoldings":"42",
+            "infoTable": {
+                "0":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                },
+                "1":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                }
+            },
+        "Q2":{
+            "totalvalue":"293447417",
+            "totalHoldings":"42",
+            "infoTable": {
+                "0":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                },
+                "1":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                }
+            }
+        },
+        "Q3":{
+            "totalvalue":"293447417",
+            "totalHoldings":"42",
+            "infoTable": {
+                "0":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                },
+                "1":{
+                    "cusip":"",
+                    "name":"",
+                    "sector":"",
+                    "value":"",
+                    "shares":""
+                }
+            }
+        }
+        }
+    }
+    

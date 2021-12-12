@@ -14,6 +14,8 @@ const authorRouter = require('./routes/authors')
 const filteredtablesRouter = require('./routes/filteredtables')
 const dashboardRouter = require('./routes/dashboard')
 
+const gurusRouter = require('./routes/gurus')
+
 const dashboard2Router = require('./routes/dashboard2')
 
 
@@ -46,6 +48,8 @@ app.use('/authors', authorRouter)
 app.use('/filteredtables', filteredtablesRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/dashboard2', dashboard2Router)
+app.use('/gurus', gurusRouter)
+
 
 app.use(express.json())
 

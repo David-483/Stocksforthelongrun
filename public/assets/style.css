@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+/* @import url("https://weloveiconfonts.com/api/?family=entypo|fontawesome|zocial");
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+} */
+
+
 :root {
   --theme-bg-color: rgba(16 18 27 / 40%);
   --border-color: rgba(113 119 144 / 25%);
@@ -1318,3 +1324,139 @@ https://flickity.metafizzy.co
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
+
+.guru-views, .guru-likes {
+	text-decoration: none;
+	font-size: 15px;
+	color: white;
+}
+
+.guru-guruName {
+  padding-top: 25px;
+	font-size: 25px;
+	text-align: center;
+	color: white;
+	margin-bottom: -10px;
+}
+
+.guru-companyName {
+	font-size: 17px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.8);
+}
+
+.guru-companyValue {
+	font-size: 15px;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.guru-horizontal-list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+	.guru-horizontal-list li {
+		float: left;
+	}
+	
+.guru-icon {
+	font-size: 25px;
+}
+
+.guru-profile-picture {
+	border-radius: 100%;
+	overflow: hidden;
+	-webkit-box-sizing: content-box;
+  	-moz-box-sizing: content-box;
+  	box-sizing: content-box;
+
+}
+	.guru-big-profile-picture {
+		margin: auto;		
+		margin-top: 30px;
+		border: 3px solid #ffffff;
+		width: 150px;
+		height: 150px;
+		box-shadow: 0px 8px 60px -10px rgb(0, 0, 0);
+	}
+
+.guru-main-container {
+	font-family: 'Ubuntu', sans-serif;
+	width: 950px;
+	height: 1725px;
+	margin: 6em auto;
+}		
+	.guru-container {
+		float: left;
+		width: 300px;
+	}
+		.guruCard {
+			margin-bottom: 250px;
+			background: linear-gradient(90deg, rgba(255, 255, 255, 0.20), rgba(255,255,255,10%),  rgba(255,255,255,0%));
+			border-radius: 15px;
+			border: 0.25px;
+			border-style: solid;
+			border-color: #ffffff;
+			box-shadow: 5px 6px 10px rgba(0,0,0,0.2);
+		}
+		.guru-middle-container {
+			margin: 0 25px;			
+		}
+			.guru-profile {
+				height: 410px;
+			}
+				.guru-description {
+					width: 210px;
+					margin: 0 auto;
+					text-align: center;
+					margin-bottom: -10px;
+				}
+				.guru-profile-description2 {
+					width: 210px;
+					margin: 0 auto;
+					text-align: center;
+					margin-bottom: -20px;
+				}
+				.guru-profile-description3 {
+					width: 210px;
+					margin: 0 auto;
+					text-align: center;
+					margin-top: 25px;
+
+				}
+				.guru-profile-options {
+					padding-top: 20px;
+				}
+						.guru-profile-options p {
+							margin: 0;
+							justify-content: center;
+						}
+						.guru-profile-options a {
+							display: block;					
+							width: 149px;
+							line-height: 60px;
+							text-align: center;
+			
+						}
+							.guru-profile-options a:hover {
+								text-decoration: none;
+								border-bottom-left-radius: 15px;
+								border-bottom-right-radius: 15px;
+							}
+							.guru-profile-options a:hover.guru-views .guru-icon {
+								color: #48ff00;
+							}
+							.guru-profile-options a:hover.guru-likes .guru-icon {
+								color: #ff0000;
+							}
+							.guru-profile-options .guru-icon {
+								padding-right: 10px;
+							}
+							.guru-profile-options .guru-views {
+								border-top: 2px solid #ffffff50;
+							}
+							.guru-profile-options .guru-likes {
+								border-top: 2px solid #ffffff50;
+							}

@@ -1,0 +1,97 @@
+<script>
+  var aum_totalHoldings = [<%= Guru.chartData.totalHoldings %>];
+  var aum_totalValues = [<%= Guru.chartData.totalValues %>];
+  var aum_categories = [<%= Guru.chartData.categories %>];
+var options = {
+    series: [{
+    name: 'Income',
+    type: 'area',
+    data: aum_totalValues
+  }, {
+    name: 'Cashflow',
+    type: 'line',
+    data: aum_totalHoldings
+  }], 
+    chart: {
+    height: 350,
+    type: 'line',
+    stacked: false
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    width: [4, 4],
+    curve: "smooth"
+  },
+  title: {
+    text: 'XYZ - Stock Analysis (2009 - 2016)',
+    align: 'left',
+    offsetX: 110
+  },
+  xaxis: {
+    categories: aum_categories,
+    tickAmount: aum_categories.length / 8,
+  },
+  yaxis: [
+    {
+      axisTicks: {
+        show: true,
+      },
+      axisBorder: {
+        show: true,
+        color: '#008FFB'
+      },
+      labels: {
+        style: {
+          colors: '#008FFB',
+        }
+      },
+      title: {
+        text: "Income (thousand crores)",
+        style: {
+          color: '#008FFB',
+        }
+      },
+      tooltip: {
+        enabled: true
+      }
+    },
+    {
+      seriesName: 'Cashflow',
+      opposite: true,
+      axisTicks: {
+        show: true,
+      },
+      axisBorder: {
+        show: true,
+        color: '#00E396'
+      },
+      labels: {
+        style: {
+          colors: '#00E396',
+        }
+      },
+      title: {
+        text: "Operating Cashflow (thousand crores)",
+        style: {
+          color: '#00E396',
+        }
+      },
+    },
+  ],
+  tooltip: {
+    fixed: {
+      enabled: true,
+      position: 'topLeft', // topRight, topLeft, bottomRight, bottomLeft
+      offsetY: 30,
+      offsetX: 60
+    },
+  },
+  legend: {
+    horizontalAlign: 'left',
+    offsetX: 40
+  }
+  };
+    
+</script>

@@ -1,0 +1,248 @@
+<div class="tableHeader">
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+    <thead>
+      <tr>
+        <th>Income Statement</th>
+        <% var JAHRE=[]; %>
+          <% for(var i=0; i < 5; i++) { %>
+            <% JAHRE[i]=Object.keys(unternehmen.General.Financials.Income_Statement.yearly)[i] %>
+              <th>
+              <% var europDate = new Date(Date.parse(JAHRE[i])) %>
+                <%= europDate.toLocaleDateString('en-US') %>
+              </th>
+
+              
+              <% } %>
+      </tr>
+    </thead>
+  </table>
+</div>
+<div class="tableInhalt">
+  <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
+    <tbody>
+      <tr>
+        <td>Umsatz</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].totalRevenue %>
+          </td>
+          <% } %>
+
+      </tr>
+
+      <tr>
+        <td>Umsatzkosten</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].costOfRevenue %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Rohgewinn</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].grossProfit %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>SG&A</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].sellingGeneralAdministrative %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>R&D</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].researchDevelopment %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Andere Kosten</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].grossProfit  
+            -  unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].sellingGeneralAdministrative  
+            -  unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].researchDevelopment  
+            -  unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>EBIT</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Zinserträge</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].interestIncome %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Zinsaufwendungen</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].interestExpense %> 
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Zinsergebnis</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].netInterestIncome %> 
+          </td>
+          <% } %>
+      </tr>
+
+      
+      <tr>
+        <td>sonstige Zinsaufwendungen/Erträge</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+            <%= parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome) 
+            +  parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].netInterestIncome) 
+            -  unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].incomeBeforeTax %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>EBT</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].incomeBeforeTax %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Steuern</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].incomeBeforeTax 
+          -  unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].netIncome %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Gewinn/Verlust</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].netIncome %>
+          </td>
+          <% } %>
+      </tr>
+
+      <!-- Hier Linie einfügen, um Trennung erkenntlich zu machen -->
+
+      <tr>
+        <td>Ausstehende Aktien</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>EBITDA</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome) 
+          +  parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].depreciationAndAmortization) %>
+          </td>
+          <% } %>
+      </tr>
+
+      
+      <tr>
+        <td>Enterprise Value</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+             <%= parseFloat((unternehmen.Kurs_Jahr[i].adjusted_close  *  unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding))
+            +  parseFloat(unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].longTermDebt) 
+            +  parseFloat(unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].shortTermDebt) 
+            -  unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].cashAndShortTermInvestments %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Umsatz pro Aktie</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].totalRevenue
+          / unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+      
+      <tr>
+        <td>EBITDA pro Aktie</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= (parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome) 
+          +  parseFloat(unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].depreciationAndAmortization) )
+          / unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>EBIT pro Aktie</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].operatingIncome 
+          / unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>Profit pro Aktie</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= unternehmen.General.Financials.Income_Statement.yearly[JAHRE[i]].netIncome
+          / unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+      <tr>
+        <td>EV pro Aktie</td>
+        <% for(var i=0; i < 5; i++) { %>
+          <td>
+          <%= parseFloat(((unternehmen.Kurs_Jahr[i].adjusted_close * unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding ))
+          + parseFloat(unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].longTermDebt) 
+          + parseFloat(unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].shortTermDebt) 
+          - unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].cashAndShortTermInvestments )
+          / unternehmen.General.Financials.Balance_Sheet.yearly[JAHRE[i]].commonStockSharesOutstanding %>
+          </td>
+          <% } %>
+      </tr>
+
+    </tbody>
+  </table>
+  </div>

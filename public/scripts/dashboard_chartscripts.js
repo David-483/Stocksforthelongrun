@@ -53,9 +53,9 @@ window.Apex = {
   var resetCssClasses = function(activeEl) {
     var els = document.querySelectorAll('button')
     Array.prototype.forEach.call(els, function(el) {
-      el.classList.remove('active')
+      el.classList.remove('status-button')
     })
-    activeEl.target.classList.add('active')
+    activeEl.target.classList.add('status-button')
   }
   
   
