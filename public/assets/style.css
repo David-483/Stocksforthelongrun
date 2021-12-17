@@ -1390,7 +1390,7 @@ https://flickity.metafizzy.co
 }		
 	.guru-container {
 		float: left;
-		width: 300px;
+		width: 250px;
 	}
 		.guruCard {
 			margin-bottom: 250px;
@@ -1406,6 +1406,7 @@ https://flickity.metafizzy.co
 		}
 			.guru-profile {
 				height: 410px;
+        height: 100%;
 			}
 				.guru-description {
 					width: 210px;
@@ -1460,3 +1461,19 @@ https://flickity.metafizzy.co
 							.guru-profile-options .guru-likes {
 								border-top: 2px solid #ffffff50;
 							}
+
+              .guru-detail-topsection{
+                display: flex;
+                border-bottom: 1px solid var(--border-color);
+                flex-shrink: 0;
+                flex-direction: row;
+                flex-grow: 1;
+                width:100%;
+                align-content:space-between;
+                padding-top: 15px;
+                height: 400px;
+              }
+
+              .aumchartcontainer{
+                width: 70%;
+              }

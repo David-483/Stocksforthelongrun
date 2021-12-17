@@ -1,7 +1,7 @@
 <script>
-  var aum_totalHoldings = [<%= Guru.chartData.totalHoldings %>];
-  var aum_totalValues = [<%= Guru.chartData.totalValues %>];
-  var aum_categories = [<%= Guru.chartData.categories %>];
+  var aum_totalHoldings = [<%= Guru.HoldingChartData.totalHoldings %>];
+  var aum_totalValues = [<%= Guru.HoldingChartData.totalValues %>];
+  var aum_categories = [<%= Guru.HoldingChartData.categories %>];
 var options = {
     series: [{
     name: 'Income',
@@ -13,7 +13,8 @@ var options = {
     data: aum_totalHoldings
   }], 
     chart: {
-    height: 350,
+    width: "100%",
+    height: "100%",
     type: 'line',
     stacked: false
   },
@@ -28,6 +29,9 @@ var options = {
     text: 'XYZ - Stock Analysis (2009 - 2016)',
     align: 'left',
     offsetX: 110
+  },
+  grid: {
+    show: false,
   },
   xaxis: {
     categories: aum_categories,

@@ -15,10 +15,10 @@ OverviewPage
                         <p class="guru-companyName"><%= Guru['0'].details.company %></p>
                     </div>
                     <div class="guru-profile-description2">
-                        <p class="guru-companyValue">Marktwert: <%= Guru['0'][Guru['0'].details.currentGuruYear][Guru['0'].details.MRQ].totalValue %></p>
+                        <p class="guru-companyValue">Marktwert: <%= Guru['0'].daten[Guru['0'].details.currentGuruYear][Guru['0'].details.MRQ].totalValue %></p>
                     </div>
                     <div class="guru-profile-description3">
-                        <p class="guru-companyValue">Holdings: <%= Guru['0'][Guru['0'].details.currentGuruYear][Guru['0'].details.MRQ].totalHoldings %></p>
+                        <p class="guru-companyValue">Holdings: <%= Guru['0'].daten[Guru['0'].details.currentGuruYear][Guru['0'].details.MRQ].totalHoldings %></p>
                     </div>
                     <ul class="guru-profile-options guru-horizontal-list">
                         <!-- <li><a class="guru-views" href="#41"><p><span class="guru-icon fontawesome-thumbs-up"></span>841</li></p></a>

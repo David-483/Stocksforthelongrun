@@ -1,0 +1,21 @@
+    <div class="guru-middle-container guru-container">
+        <div class="guru-profile guruCard">
+            <div class="guru-profile-picture guru-big-profile-picture clear">
+                <img width="150px" alt="<%= Guru.gurus[0].details.guruImage %>" src="\img\gurus\<%= Guru.gurus[0].details.guruID %>.jpg" >
+            </div>
+            <h1 class="guru-guruName"> <%= Guru.gurus['0'].details.guru %></h1>
+            <div class="guru-profile-description">
+                <p class="guru-companyName"><%= Guru.gurus['0'].details.company %></p>
+            </div>
+            <div class="guru-profile-description2">
+                <p class="guru-companyValue">Marktwert: <%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].totalValue %></p>
+            </div>
+            <div class="guru-profile-description3">
+                <p class="guru-companyValue">Holdings: <%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].totalHoldings %></p>
+            </div>
+            <ul class="guru-profile-options guru-horizontal-list">
+                <!-- <li><a class="guru-views" href="#41"><p><span class="guru-icon fontawesome-thumbs-up"></span>841</li></p></a>
+                <li><a class="guru-likes" href="#42"><p><span class="guru-icon fontawesome-thumbs-down"></span>49</li></p></a> -->
+            </ul>
+        </div>
+    </div>

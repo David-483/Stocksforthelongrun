@@ -1,0 +1,28 @@
+<script>
+
+var guruSector_sectorValues = [<%= Guru.sectorChartData.sectorValues %>];
+  var guruSector_categories  = "<%= Guru.sectorChartData.categories %>";
+  guruSector_categories = guruSector_categories.split(',');
+
+
+var guruSectorChart = {
+    series: guruSector_sectorValues,
+    chart: {
+    width: 380,
+    type: 'pie',
+  },
+  labels: guruSector_categories,
+  responsive: [{
+    breakpoint: 480,
+    options: {
+      chart: {
+        width: 200
+      },
+      legend: {
+        position: 'bottom'
+      }
+    }
+    
+  }]
+  };
+</script>

@@ -5,10 +5,22 @@
     <div class="main-container">
         <div class="main">
 
-            <%= Guru.chartData.totalValues %>;
-            <%- include ('_aumchart.ejs') %>
-                <div id="aumchart"></div>
+            <div class="guru-detail-topsection">
+                <%- include ('_guruProfileCard.ejs') %>
 
+                    <%- include ('_aumchart.ejs') %>
+                        <div class="aumchartcontainer">
+                            <div id="aumchart"></div>
+                        </div>
+            </div>
+            <!-- ENDE TOP SECTION -->
+            <div class="guru-detail-middlesection">
+                <%- include ('_tablePortfolio.ejs') %>
+            </div>
+            <%- include ('_guruSectorChart.ejs') %>
+            <div class="guruSectorChartcontainer">
+                <div id="guruSectorChart"></div>
+            </div>
         </div>
     </div>
 </div>
