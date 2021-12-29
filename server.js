@@ -18,6 +18,8 @@ const gurusRouter = require('./routes/gurus')
 
 const dashboard2Router = require('./routes/dashboard2')
 
+const analysenRouter = require('./routes/analysen')
+
 
 app.set('view engine', 'ejs')
 
@@ -49,6 +51,7 @@ app.use('/filteredtables', filteredtablesRouter)
 app.use('/dashboard', dashboardRouter)
 app.use('/dashboard2', dashboard2Router)
 app.use('/gurus', gurusRouter)
+app.use('/analysen', analysenRouter)
 
 
 app.use(express.json())

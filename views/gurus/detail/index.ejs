@@ -5,6 +5,8 @@
     <div class="main-container">
         <div class="main">
 
+        
+
             <div class="guru-detail-topsection">
                 <%- include ('_guruProfileCard.ejs') %>
 
@@ -17,10 +19,22 @@
             <div class="guru-detail-middlesection">
                 <%- include ('_tablePortfolio.ejs') %>
             </div>
+            <div class="guru-detail-middlesection">
+                <%- include ('_tableAbgaenge.ejs') %>
+            </div>
+            <div class="guru-detail-middlesection">
+                <%- include ('_tableZugaenge.ejs') %>
+            </div>
             <%- include ('_guruSectorChart.ejs') %>
             <div class="guruSectorChartcontainer">
                 <div id="guruSectorChart"></div>
             </div>
+            <%- include ('_topTenHoldingsTreemap.ejs') %>       
+            <div class="guruSectorTopTenHoldingsTreemap">
+                <div id="guruTopTenHoldingsTreemap"></div>
+            </div>
+            <%- include ('_sectorOverTimeChart.ejs') %>
+                    <div id="sectorOverTimeChart"></div>
         </div>
     </div>
 </div>

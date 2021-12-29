@@ -1,0 +1,90 @@
+<script>
+var gurutrend_Energie = [<%= Guru.trendChartData.Energie %>];
+var gurutrend_Finanzen = [<%= Guru.trendChartData.Finanzen %>];
+var gurutrend_Fonds = [<%= Guru.trendChartData.Fonds %>];
+var gurutrend_Gesundheit = [<%= Guru.trendChartData.Gesundheit %>];
+var gurutrend_Basiskonsumgüter = [<%= Guru.trendChartData.Basiskonsumgüter %>];
+var gurutrend_Immobilien = [<%= Guru.trendChartData.Immobilien %>];
+var gurutrend_Industrie = [<%= Guru.trendChartData.Industrie %>];
+var gurutrend_Kommunikation = [<%= Guru.trendChartData.Kommunikation %>];
+var gurutrend_Nicht_Basiskonsumgüter = [<%= Guru.trendChartData.Nicht_Basiskonsumgüter %>];
+var gurutrend_Informationstechnologie = [<%= Guru.trendChartData.Informationstechnologie %>];
+var gurutrend_Versorger = [<%= Guru.trendChartData.Versorger %>];
+var gurutrend_Material = [<%= Guru.trendChartData.Material %>];
+var gurutrend_Kryptowährungen = [<%= Guru.trendChartData.Kryptowährungen %>];
+var gurutrend_categories = "<%= Guru.trendChartData.sectorOverTimeCategories %>";
+
+gurutrend_categories = gurutrend_categories.split(',');
+
+  sectorOverTimeChart= {
+          series: [{
+          name: 'Energie',
+          data: gurutrend_Energie
+        }, {
+          name: 'Finanzen',
+          data: gurutrend_Finanzen
+        }, {
+          name: 'Fonds',
+          data: gurutrend_Fonds
+        }, {
+          name: 'Gesundheit',
+          data: gurutrend_Gesundheit
+        }, {
+          name: 'Basiskonsumgüter',
+          data: gurutrend_Basiskonsumgüter
+        }, {
+          name: 'Immobilien',
+          data: gurutrend_Immobilien
+        }, {
+          name: 'Industrie',
+          data: gurutrend_Industrie
+        }, {
+          name: 'Material',
+          data: gurutrend_Material
+        }, {
+          name: 'Versorger',
+          data: gurutrend_Versorger
+        }, {
+          name: 'Kommunikation',
+          data: gurutrend_Kommunikation
+        }, {
+          name: 'Nicht Basiskonsumgüter',
+          data: gurutrend_Nicht_Basiskonsumgüter
+        }, {
+          name: 'Kryptowährungen',
+          data: gurutrend_Kryptowährungen
+        }, {
+          name: 'Informationstechnologie',
+          data: gurutrend_Informationstechnologie
+        }],
+        
+          chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+          stackType: '100%'
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }],
+        xaxis: {
+          categories: gurutrend_categories,
+        },
+        fill: {
+          opacity: 1
+        },
+        legend: {
+          position: 'bottom',
+          offsetX: 0,
+          offsetY: 50
+        },
+        };
+        
+  </script>

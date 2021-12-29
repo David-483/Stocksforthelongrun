@@ -1,0 +1,24 @@
+<script>myObj2 = [<%- JSON.stringify(Guru.topTenHoldingsChartData.topTenHoldingChartData) %>];</script>
+<script>
+console.log(myObj2)
+    var guruTopTenHoldingsTreemap = {
+        series: [
+    {
+        data:  myObj2[0] 
+    }
+],
+    legend: {
+        show: false
+  },
+  dataLabels: {
+      enabled: true,
+    },
+    chart: {
+        height: 350,
+    type: 'treemap'
+  },
+    title: {
+        text: 'Top Holdings'
+  }
+  };
+</script>

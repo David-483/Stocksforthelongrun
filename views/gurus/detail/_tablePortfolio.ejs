@@ -1,12 +1,12 @@
 
 <div class="carousel-slider">
     <div class="tableHeader">
-
         <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
             <thead>
                 <tr>
                     <th>Logo</th>
                     <th>Name</th>
+                    <th>Sektor</th>
                     <th>Anteil im Portfolio</th>
                     <th>Shares</th>
                     <th>Shares Value Veränderung ggü Vorjahr</th>
@@ -23,15 +23,17 @@
         <table class="carousel-table" cellpadding="0" cellspacing="0" border="0">
     
             <tbody>
-                <% for(var i=0; i < 5; i++) { %>
+                <% for(var i=0; i < (Guru.depotData.currentQuartal).length; i++) { %>
                     <tr>
-                        <td><%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].cusip %></td>
-                        <td><%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].name %></td>
-                        <td><%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].sector %></td>
-                        <td><%= (Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].value / Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].totalValue).toFixed(2) %></td>
-                        <td><%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].shares %></td>
-                        <td><%= Guru.gurus['0'].daten[Guru.gurus['0'].details.currentGuruYear][Guru.gurus['0'].details.MRQ].infoTable[i].shares %></td>
-                        <td></td>
+                        <td><img src="/img/unternehmenslogos/<%= Guru.depotData.currentQuartal[i].ticker %>.svg" height="24"></td>
+                        <td><%= Guru.depotData.currentQuartal[i].name %></td>
+                        <td><%= Guru.depotData.currentQuartal[i].sector %></td>
+                        <td><%= Guru.depotData.currentQuartal[i].portfolioAnteil %></td>
+                        <td><%= Guru.depotData.currentQuartal[i].shares %> </td>
+                        <td> <%= Guru.depotData.currentQuartal[i].changes %> %</td>
+                        <td><%= Guru.depotData.currentQuartal[i].value %></td>
+                        <td><%= ((Guru.depotData.currentQuartal[i].value * 1000) / Guru.depotData.currentQuartal[i].shares).toFixed(2) %> $</td>
+                        
                     </tr>
                     <% } %>
             </tbody>
