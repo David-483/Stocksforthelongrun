@@ -20,6 +20,8 @@ const dashboard2Router = require('./routes/dashboard2')
 
 const analysenRouter = require('./routes/analysen')
 
+const searchbarRouter = require('./routes/searchbar')
+
 
 app.set('view engine', 'ejs')
 
@@ -52,7 +54,7 @@ app.use('/dashboard', dashboardRouter)
 app.use('/dashboard2', dashboard2Router)
 app.use('/gurus', gurusRouter)
 app.use('/analysen', analysenRouter)
-
+app.use('/searchbar', searchbarRouter)
 
 app.use(express.json())
 

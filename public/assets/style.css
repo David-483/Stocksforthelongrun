@@ -37,9 +37,10 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+
 body {
   font-family: var(--body-font);
-  background-image: url(https://cdn.discordapp.com/attachments/838725097073410068/912454024719122512/wallpaper4.jpg);
+  background-image: url("/img/wallpaper5.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -1476,3 +1477,5 @@ https://flickity.metafizzy.co
               .aumchartcontainer{
                 width: 70%;
               }
+
+              

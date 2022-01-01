@@ -21,6 +21,9 @@ router.get('/', (req, res) =>{
 
 
 router.get('/:ticker', async (req, resp) => {
+
+  var date_ob = new Date();
+  console.log("Request Start:" + date_ob.getSeconds())
   
   // replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
   //To-Do: Replace with current Ticker
@@ -53,15 +56,20 @@ router.get('/:ticker', async (req, resp) => {
     
     //LINK FÜR DIVIDENDEN
     var URL_DIVIDENDEN = 'https://eodhistoricaldata.com/api/div/AAPL.US?api_token=OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX&fmt=json';
+    var date_ob = new Date();
+    console.log("URLs zusammen:" + date_ob.getSeconds())
 
   axios.all([
     axios.get(URL_ALLE_DATEN),
-    axios.get('https://eodhistoricaldata.com/api/eod/MCD.US?api_token=OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX&period=annual&order=d&fmt=json'),
+    axios.get(URL_AKTIENKURS_JAHR),
+    // axios.get('https://eodhistoricaldata.com/api/eod/MCD.US?api_token=OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX&period=annual&order=d&fmt=json'),
     axios.get(URL_AKTIENKURS_JAHR),
     axios.get('https://eodhistoricaldata.com/api/eod/MCD.US?api_token=OeAFFmMliFG5orCUuwAKQ8l4WWFQ67YX&period=m&fmt=json&order=d'),
     axios.get(URL_DIVIDENDEN),
   ])
   .then(axios.spread((ALLE_DATEN, kurs_total, kurs_yearly, kurs_monthly, dividenden) => {
+    var date_ob = new Date();
+    console.log("Alle Daten gezogen:" + date_ob.getSeconds())
     //console.log('Date created: ', test1.data);
     //console.log('Date created: ', url2.data);
     //let z = Object.assign(test1.data, url2.data);
@@ -84,17 +92,17 @@ router.get('/:ticker', async (req, resp) => {
     var DURSCHNITT_PSH = 0;
     var DURSCHNITT_PBH = 0;
 
-
+    console.log("Kurs komplett angefangen");
     for(z = 0; z <= Object.keys(kurs_total.data).length -1; z++){
       //console.log(kurs_total.data);
       KURS_KOMPLETT.push([kurs_total.data[z].date, kurs_total.data[z].adjusted_close]);
     }
-    
-    //console.log(KURS_KOMPLETT);
+    var date_ob = new Date();
+    console.log("Kurs geladen" + date_ob.getSeconds())
 
 
     for(i = 0; i < 10; i++){
-      var JAHR = Object.keys(ALLE_DATEN.data.Earnings.Annual)[i];
+      var JAHR = Object.keys(ALLE_DATEN.data.Financials.Income_Statement.yearly)[i];
       var eps = ALLE_DATEN.data.Earnings.Annual[JAHR].epsActual;
       var total_rev = ALLE_DATEN.data.Financials.Income_Statement.yearly[JAHR].totalRevenue;
       var calc_outstandingShares = ALLE_DATEN.data.Financials.Balance_Sheet.yearly[JAHR].commonStockSharesOutstanding;
@@ -186,8 +194,8 @@ router.get('/:ticker', async (req, resp) => {
     var SparkChart = {"PEH" : PEH, "PSH" : PSH, "PBH": PBH, "DYH": DYH};
        
     var Test = { "Kurs_Jahr" : kurs_yearly.data, "Kurs_Total" : KURS_KOMPLETT, "General" : ALLE_DATEN.data, "SparkChart" : SparkChart, "Sonstiges": Sonstiges};
-
-    
+    var date_ob = new Date();
+    console.log("Alle Berechnungen" + date_ob.getSeconds())
     resp.render('dashboard/index2', ({unternehmen: Test}))
     //resp.json(({unternehmen: Test}));
   }));

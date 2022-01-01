@@ -84,16 +84,21 @@
 
        $(document).ready( function() {
         $("#autocomplete").autocomplete({
+            select: function (e, ui) {
+
+                 window.location.href = ui.item.value;
+                //  window.location.href = "dashboard2/"
+            },
             source:function(req,res){
                 $.ajax({
-                 url:'/filteredtables/auto',
+                 url:'/searchbar/search',
                  method:'post',
                  dataType:'json',
-                 data:{'auto':req.term},
+                 data:{'search':req.term},
                  success:function(data){ 
                      var x = new Array();
                          $.each(data.data,(index,values)=>{
-                              x.push({'value':values.name});
+                              x.push({'label':values.Name, 'value': values.Code});
                       });
                       res(x)
                   },
@@ -101,6 +106,7 @@
                       alert('server error occured')
                   }
                 });
+                
             }
         });
  });
